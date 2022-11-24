@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Male_Fashion Template" />
+    <meta name="keywords" content="Male_Fashion, unica, creative, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Male-Fashion | Template</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <!-- Css Styles -->
+    {{!-- <link rel="stylesheet" href="/assets/css/signUp.css" type="text/css" /> --}}
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+  </head>
+
+<body>
+    <div id="preloder">
+      <div class="loader"></div>
+    </div>
+    <button onclick="topFunction()" id="myBtn"  
+            type="button"
+            ><iconify-icon icon="cil:chevron-top"></iconify-icon>
+    </button>
+
+
+    {{>header}}
+    <div class="container1">
+        {{{ body }}}
+    </div>
+   {{>footer}}
+    
+    
+     <!-- Iconify -->
+     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+
+     <!-- Js Plugins -->
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.countdown.min.js"></script>
+    <script src="/assets/js/jquery.slicknav.js"></script>
+    <script src="/assets/js/mixitup.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+    // Get the button:
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+    // Active Menu
+    let ulMenu = document.getElementById("ul-menu")
+    let elementMenuItem = ulMenu.getElementsByClassName("menu-item")
+    const current = document.getElementsByClassName("active");
+    // console.log(current[0] )
+    console.log(ulMenu, elementMenuItem)
+    for(let i = 0; i < elementMenuItem.length; i++) {
+      elementMenuItem[i].addEventListener("click", () => {
+        // lấy ra menu active hiện tại
+        const current = document.getElementsByClassName("active");
+        console.log(current[0])
+        // thay thế menu active hiện tại thành ""
+        current[0].className = current[0].className.replace("active", " ");
+        this.className += "active";
+      });
+    }
+
+
+      const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+    </script>
+</body>
+</html>

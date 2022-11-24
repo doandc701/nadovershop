@@ -1,0 +1,338 @@
+<div class="product-detail">
+  <div class="row">
+    <div class="col-4">
+      <img
+        id="imgproduceParent"
+        src="/img/sp/{{product.image}}"
+        class="card-img-top"
+        alt="{{product.image}}"
+      />
+      <div class="tab-image">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#home-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="home-tab-pane"
+              aria-selected="true"
+            ><img
+                src="/img/imagechild/1botnam.jpg"
+                class="card-img-top thumbnail"
+                alt="{{product.title}}"
+              /></button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="profile-tab-pane"
+              aria-selected="false"
+            ><img
+                src="/img/imagechild/1botnam1.jpg"
+                class="card-img-top thumbnail"
+                alt="{{product.title}}"
+              /></button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#contact-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="contact-tab-pane"
+              aria-selected="false"
+            ><img
+                src="/img/imagechild/1botnam2.jpg"
+                class="card-img-top thumbnail"
+                alt="{{product.title}}"
+              /></button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="disabled-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#disabled-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="disabled-tab-pane"
+              aria-selected="false"
+            ><img
+                src="/img/imagechild/1botnam3.jpg"
+                class="card-img-top thumbnail"
+                alt="{{product.title}}"
+              /></button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="col-6">
+      {{! <div class="card" style="width: 18rem;">
+        < class="card-body"> }}
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+          <li
+            class="breadcrumb-item active"
+            aria-current="page"
+          >{{product.title}}</li>
+        </ol>
+      </nav>
+      <h5 class="card-title">{{product.title}}</h5>
+      <p
+        class="card-text"
+        style="color:orangered;font-size: 30px;
+                font-weight: 500;"
+      >{{product.price}}₫</p>
+      <div class="table-size">
+        <div class="btn-group" role="group">
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio1"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio1">36</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio2"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio2">37</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio3"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio3">38</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio4"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio4">39</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio5"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio5">40</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio6"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio6">41</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio7"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio7">42</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio8"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio8">43</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio9"
+            autocomplete="off"
+          />
+          <label class="btn size" for="btnradio9">44</label>
+        </div>
+      </div>
+
+      <div class="select-quatity">
+        <button class="btn" onclick="increase()">
+          <iconify-icon icon="akar-icons:minus"></iconify-icon>
+        </button>
+        <input
+          id="textbox"
+          type="text"
+          role="spinbutton"
+          aria-valuenow="1"
+          value="1"
+          style="width: 50px; text-align: center;border:none"
+        />
+        <button class="btn" onclick="reduction()">
+          <iconify-icon icon="akar-icons:plus"></iconify-icon>
+        </button>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sản phẩm có sẵn tại:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row"><a class="notdefault" href="tel:0382795561"><span
+                >038.279.5561</span>
+              </a>
+              <a
+                class="notdefault"
+                href="https://goo.gl/maps/F8nuutdbWTRscb7a8"
+                target="_blank"
+              ><span>• 126 Mễ Trì Hạ - Quận Nam Từ Liêm - TP.Hà Nội</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <button class="btn btn-orginal"><iconify-icon
+            icon="bi:cart-plus-fill"
+            style="margin-right: 5px;
+                  bottom: -2px;
+                  position: relative;"
+          ></iconify-icon>Thêm vào giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="tab-description">
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="home-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#home-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="home-tab-pane"
+          aria-selected="true"
+        >Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="profile-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#profile-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="profile-tab-pane"
+          aria-selected="false"
+        >Đánh giá</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="home-tab-pane"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+        tabindex="0"
+      >
+        Nếu bạn vẫn đang tìm kiếm một thứ gì đó độc đáo nhưng không kém phần nổi
+        bật trong bất kỳ loại thời tiết nào, thì không đâu khác ngoài Timberland
+        6 Inch Premium Boots Wheat Nubuck! Cổ điển hòa lẫn hiện đại, đây hứa hẹn
+        sẽ là một trong những siêu phẩm không thể thiếu trong tủ đồ của bạn.
+        Timberland là một nhà sản xuất và bản lẻ những trang phục ngoài trời của
+        Mỹ, đặc biệt là các sản phẩm giày dép và những đôi boot da chống thấm
+        nước. Những sản phẩm giày dép của Timberland hướng tới người tiêu dùng
+        có các hoạt động ngoài trời đời thường. Năm 1973, Timberland đánh dấu
+        bước ngoặt lớn trong việc xây dựng tên tuổi của mình, lần đầu tiên cho
+        ra mắt những đôi boot da chống thấm nước, thiết lập tiêu chuẩn mới cho
+        tính thủ công, độ vững bền và sự bảo hộ. Tất nhiên, để trở thành cái tên
+        tiên phong trong công nghệ chống thấm nước, Timberland rất nghiêm túc
+        trong việc thiết kế, nghiên cứu và thậm chí là công khai thử nghiệm.
+        Những đôi giày Timberland xứng đáng là người bạn đồng hành cùng bạn cho
+        những chuyến phiêu lưu khám phá đầy tính năng động. Với mỗi sản phẩm
+        giày Timberland sẽ truyền cảm hứng cho bạn để thực hiện những thách thức
+        mới trong mỗi chuyến đi. Màng Gore-Tex® đảm bảo chân khô thoáng, đế
+        ngoài mang lại độ bám tuyệt vời, và công nghệ OrthoLite® và EVA mang đến
+        sự thoải mái đáng kinh ngạc. Cập nhật nhanh nhất lịch ra mắt của các mẫu
+        giày mới nhất bằng cách theo dõi Sneaker Daily trên Facebook hoặc
+        Instagram. Thông tin phát hành Timberland 6 Inch Premium Boots Wheat
+        Nubuck Nhà sản xuất: Timberland Thiết kế: 6 Inche Mã sản phẩm: TB010061﻿
+        Chất liệu: – Phía trên giày làm bằng da cao cấp từ “Leather Working
+        Group” – Đệm chân OrthoLite® nhẹ và kháng khuẩn – Trọng lượng nhẹ – Hệ
+        thống dây giày đan nhanh và chắc chắn
+
+      </div>
+      <div
+        class="tab-pane fade mt-4"
+        id="profile-tab-pane"
+        role="tabpanel"
+        aria-labelledby="profile-tab"
+        tabindex="0"
+      >
+        <form>
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Nhận xét của bạn"
+              id="floatingTextarea2"
+              style="height: 100px"
+            ></textarea>
+            <label for="floatingTextarea2">Nhận xét của bạn</label>
+          </div>
+          <div class="row mt-4">
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Tên"
+                />
+                <label for="floatingInput">Tên</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label for="floatingInput">Email</label>
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary justify-content-center"
+          >Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

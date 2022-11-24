@@ -1,0 +1,2 @@
+cài nodemon để thấy được sự thay đổi khi thay đổi dữ liệu
+Mongoose : Mô hình hóa đối tượng trong mongoose https://github.com/Automattic/mongoose

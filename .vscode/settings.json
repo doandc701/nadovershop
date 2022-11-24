@@ -1,0 +1,4 @@
+{
+    "prettier.embeddedLanguageFormatting": "auto",
+    "git.ignoreLimitWarning": true
+}
