@@ -2,16 +2,18 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const Product = new Schema({
-  title: { type: String, maxLength: 255 },
+  name: { type: String, maxLength: 255 },
+  images: { type: String, maxLength: 255 },
+  price:  { type: String, maxLength: 255 },
   original_price: { type: String, maxLength: 255 },
-  price: { type: String, maxLength: 255 },
-  breadcrumb: { type: String, maxLength: 600 },
-  description: { type: String, maxLength: 600 },
-  image: { type: String, maxLength: 255 },
-  quatity: { type: String, maxLength: 255 },
-  slug: { type: String, maxLength: 255 },
-  createdAt: { type: Date, default: Date.now },
-  updateAt: { type: Date, default: Date.now },
+  product_type:{type: String, maxLength: 255}, //new //hot
+  description :{type: String, maxLength: 255},
+  imagechild1 :{type: String, maxLength: 255},
+  imagechild2 :{type: String, maxLength: 255},
+  imagechild3 :{type: String, maxLength: 255},
+  slug:{type: String, maxLength: 255},
+},{
+  timestamps : true
 });
 
 export default mongoose.model("Product", Product);
