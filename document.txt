@@ -1,2 +1,20 @@
 cài nodemon để thấy được sự thay đổi khi thay đổi dữ liệu
 Mongoose : Mô hình hóa đối tượng trong mongoose https://github.com/Automattic/mongoose
+
+****Một số điều cần lưu ý
+
+Mỗi lần chuẩn bị push code lên thì format lại code 
+code : npm run format
+
+có thể chạy code bằng một trong 2 lệnh trên :
++ npm start
++ npm run dev
+
++ Sửa css: npm run watch
++ sửa css ở public/assets/sass
+
+****Tài liệu 
+RestFull API : GET , POST , PUT , PATCH, DELETE
+
+Method:  method-override được dùng để hỗ trợ chuyển từ phương thức post sang put 
+https://expressjs.com/en/resources/middleware/method-override.html

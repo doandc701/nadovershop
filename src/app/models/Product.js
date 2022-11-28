@@ -1,19 +1,29 @@
 import mongoose from "mongoose";
+//tạo slug tự động
+import slug from "mongoose-slug-generator";
 const Schema = mongoose.Schema;
 
-const Product = new Schema({
-  name: { type: String, maxLength: 255 },
-  images: { type: String, maxLength: 255 },
-  price:  { type: String, maxLength: 255 },
-  original_price: { type: String, maxLength: 255 },
-  product_type:{type: String, maxLength: 255}, //new //hot
-  description :{type: String, maxLength: 255},
-  imagechild1 :{type: String, maxLength: 255},
-  imagechild2 :{type: String, maxLength: 255},
-  imagechild3 :{type: String, maxLength: 255},
-  slug:{type: String, maxLength: 255},
-},{
-  timestamps : true
-});
+// add plugin
+mongoose.plugin(slug);
+
+const Product = new Schema(
+  {
+    name: { type: String },
+    images: { type: String },
+    price: { type: String },
+    original_price: { type: String },
+    product_type: { type: String }, //new //hot
+    description: { type: String },
+    imagechild1: { type: String },
+    imagechild2: { type: String },
+    imagechild3: { type: String },
+
+    // slug dùng unique để khi trùng slug thì nó sẽ tự tạo thêm một chuỗi bất kì để không gây ra lỗi
+    slug: { type: String, slug: "name", unique: true },
+  },
+  {
+    timestamps: true,
+  },
+);
 
 export default mongoose.model("Product", Product);

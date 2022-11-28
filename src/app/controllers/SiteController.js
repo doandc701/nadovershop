@@ -1,5 +1,5 @@
 import Product from "../models/Product.js";
-import { mutipleMongooseToObject } from "../../util/mongoose.js";
+import { multipleMongooseToObject } from "../../util/mongoose.js";
 class SiteController {
   // [GET] /home
   index(req, res, next) {
@@ -8,7 +8,7 @@ class SiteController {
     Product.find({})
       .then((product) => {
         // nhận được mảng
-        res.render("index", { product: mutipleMongooseToObject(product) });
+        res.render("index", { product: multipleMongooseToObject(product) });
       })
       .catch(next);
   }
