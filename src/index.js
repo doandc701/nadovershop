@@ -2,9 +2,15 @@ import express from "express";
 const app = express();
 import morgan from "morgan";
 import { engine } from "express-handlebars";
+import methodOverride from "method-override";
 const port = 3000;
 import route from "./routes/index.js";
 import db from "./config/db/index.js";
+
+// import adminRoutes from "../src/area/admin/router/index.js";
+
+// // change get to use it
+// app.use("/admin", adminRoutes);
 
 // HTTP logger
 // app.use(morgan("combined"));
@@ -20,8 +26,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // XMLHttpRequest, Axios,fetched data
 
+// override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
+
 // template engines
-app.engine(".hbs", engine({ extname: ".hbs" }));
+app.engine(
+  ".hbs",
+  engine({
+    extname: ".hbs",
+    helpers: {
+      // tạo function index + 1
+      sum: (a, b) => a + b,
+    },
+  }),
+);
 app.set("view engine", ".hbs");
 app.set("views", "./src/view");
 

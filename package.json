@@ -5,8 +5,9 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "n": "prettier --single-quote --trailing-comma all --tab-width 2 --write  \"src/**/*.{js,json,scss}\"",
+    "format": "prettier --trailing-comma all --tab-width 2 --write  \"src/**/*.{js,json,scss}\"",
     "start": "nodemon src/index.js",
+    "dev": "nodemon src/index.js",
     "build": "rimraf dist",
     "watch": "node-sass --watch public/assets/sass --output public/assets/css",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,8 +17,10 @@
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
+    "method-override": "^3.0.0",
     "module_name": "^1.0.0",
     "mongoose": "^6.7.0",
+    "mongoose-slug-generator": "^1.0.4",
     "multer": "^1.4.5-lts.1",
     "sharp": "^0.31.2",
     "uuid": "^9.0.0"
