@@ -975,7 +975,10 @@ ul.footer__support li a:hover {
 .product__item__pic {
   height: 260px;
   position: relative;
-  background-position: center center; }
+  background-position: center center;
+  transition: all 0.5s; }
+  .product__item__pic:hover {
+    transform: scale(1.1); }
   .product__item__pic .label {
     color: #111111;
     font-size: 11px;
