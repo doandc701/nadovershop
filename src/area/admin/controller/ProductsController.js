@@ -26,7 +26,7 @@ class ProductsController {
     product
       .save()
       .then(() => {
-        res.redirect("/");
+        res.redirect("/admin/tables/products");
       })
       .catch((err) => {});
     // res.send("Product saved successfully");
@@ -57,5 +57,12 @@ class ProductsController {
       .catch(next);
   }
   // end sửa một bản ghi vào database
+
+  // [DELETE] /admin/tables/products/:id
+  delete(req, res, next) {
+    Product.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
 }
 export default new ProductsController();

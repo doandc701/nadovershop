@@ -95,7 +95,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:;">
+                    <a class="nav-link" href="/admin/sign-in">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
@@ -122,7 +122,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:;">
+                    <a class="nav-link" href="/admin/sign-up">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1"
@@ -195,7 +195,7 @@
                     </div>
                     <ul class="navbar-nav justify-content-end">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                            <a href="/admin/sign-in" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
                                 <span class="d-sm-inline d-none">Sign In</span>
                             </a>
@@ -315,7 +315,8 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="">Categories</a>
+                            <a class="nav-link active" aria-current="page"
+                                href="/admin/tables/categories">Categories</a>
                             <a class="nav-link" href="/admin/tables/products">Products</a>
                             <a class="nav-link" href="/admin/tables/blog">Blog</a>
                             <a class="nav-link " href="/admin/tables/order-cart">Orders
@@ -324,31 +325,37 @@
                     </div>
                 </div>
             </nav>
-
-            <button type="button" class="btn btn-success mt-4">Thêm</button>
+            <a href="/admin/tables/categories/create">
+                <button type="button" class="btn btn-success mt-4">Thêm</button>
+            </a>
             {{!-- tables --}}
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name Categories</th>
+                        {{!-- <th scope="col">Time</th> --}}
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each categories}}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <button type="button" class="btn btn-warning">Sửa</button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-danger">Xóa</button>
-                        </td>
+                        {{!-- cách viết sum @index 1 <=> sum(index,1) --}}
+                            <th scope="row">{{ sum @index 1 }}</th>
+                            <td>{{this.name}}</td>
+                            {{!-- <td>{{this.createdAt}}</td> --}}
+                            <td>
+                                <a type="button" href="/admin/tables/categories/{{this._id}}/edit"
+                                    class="btn btn-warning">Sửa</a>
+                            </td>
+                            <td>
+                                <a type="button" href="#" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#delete-categories" data-id="{{this._id}}">Xóa</a>
+                            </td>
                     </tr>
+                    {{/each}}
 
 
                 </tbody>
@@ -356,105 +363,34 @@
         </div>
     </main>
 
+    {{!-- Dialog confirm delete --}}
+    <div class="modal fade" id="delete-categories" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có muốn xóa sản phẩm ?
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-delete-product" type="button" class="btn btn-primary">OK</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Delete hiden form --}}
+    <form name="delete-categories-form" method="POST" />
+
+
     <!--   Core JS Files   -->
     <script src="/admin/assets/js/core/popper.min.js"></script>
     <script src="/admin/assets/js/core/bootstrap.min.js"></script>
     <script src="/admin/assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="/admin/assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="/admin/assets/js/plugins/chartjs.min.js"></script>
-    <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d"); new
-            Chart(ctx, {
-                type: "bar", data: {
-                    labels: ["Apr", "May", "Jun", "Jul",
-                        "Aug", "Sep", "Oct", "Nov", "Dec"], datasets: [{
-                            label: "Sales", tension:
-                                0.4, borderWidth: 0, borderRadius: 4, borderSkipped: false,
-                            backgroundColor: "#fff", data: [450, 200, 100, 220, 500, 100, 400, 230,
-                                500], maxBarThickness: 6
-                        },],
-                }, options: {
-                    responsive: true,
-                    maintainAspectRatio: false, plugins: { legend: { display: false, } },
-                    interaction: { intersect: false, mode: 'index', }, scales: {
-                        y: {
-                            grid: {
-                                drawBorder: false, display: false, drawOnChartArea: false, drawTicks:
-                                    false,
-                            }, ticks: {
-                                suggestedMin: 0, suggestedMax: 500, beginAtZero: true,
-                                padding: 15, font: {
-                                    size: 14, family: "Open Sans", style: 'normal',
-                                    lineHeight: 2
-                                }, color: "#fff"
-                            },
-                        }, x: {
-                            grid: {
-                                drawBorder: false,
-                                display: false, drawOnChartArea: false, drawTicks: false
-                            }, ticks: {
-                                display: false
-                            },
-                        },
-                    },
-                },
-            }); var ctx2 =
-                document.getElementById("chart-line").getContext("2d"); var
-                    gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-        gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-        gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-        gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors var
-        gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-        gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-        gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-        gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors new
-        Chart(ctx2, {
-            type: "line", data: {
-                labels: ["Apr", "May", "Jun", "Jul",
-                    "Aug", "Sep", "Oct", "Nov", "Dec"], datasets: [{
-                        label: "Mobile apps",
-                        tension: 0.4, borderWidth: 0, pointRadius: 0, borderColor: "#cb0c9f",
-                        borderWidth: 3, backgroundColor: gradientStroke1, fill: true, data: [50,
-                            40, 300, 220, 500, 250, 400, 230, 500], maxBarThickness: 6
-                    }, {
-                        label:
-                            "Websites", tension: 0.4, borderWidth: 0, pointRadius: 0, borderColor:
-                            "#3A416F", borderWidth: 3, backgroundColor: gradientStroke2, fill: true,
-                        data: [30, 90, 40, 140, 290, 290, 340, 230, 400], maxBarThickness: 6
-                    },],
-            }, options: {
-                responsive: true, maintainAspectRatio: false, plugins: {
-                    legend: { display: false, }
-                }, interaction: {
-                    intersect: false, mode:
-                        'index',
-                }, scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false, display: true,
-                            drawOnChartArea: true, drawTicks: false, borderDash: [5, 5]
-                        }, ticks: {
-                            display: true, padding: 10, color: '#b2b9bf', font: {
-                                size: 11, family:
-                                    "Open Sans", style: 'normal', lineHeight: 2
-                            },
-                        }
-                    }, x: {
-                        grid: {
-                            drawBorder: false, display: false, drawOnChartArea: false, drawTicks:
-                                false, borderDash: [5, 5]
-                        }, ticks: {
-                            display: true, color: '#b2b9bf',
-                            padding: 20, font: {
-                                size: 11, family: "Open Sans", style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-    </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1; if (win &&
             document.querySelector('#sidenav-scrollbar')) {
@@ -465,31 +401,27 @@
                 options);
         }
     </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="/admin/assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-    {{!-- validation --}}
+    {{!-- Dialog get ID product-delete --}}
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (() => {
-            'use strict'
+        let categoriesID;
+        // lấy ra form delete
+        const deleteForm = document.forms['delete-categories-form']
+        //console.log(deleteForm)
+        const deleteProductModal = document.getElementById('delete-categories')
+        deleteProductModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget
+            categoriesID = button.getAttribute('data-id')
 
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.needs-validation')
+        })
 
-            // Loop over them and prevent submission
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()
+        const btnDeleteProduct = document.getElementById('btn-delete-product')
+        btnDeleteProduct.addEventListener('click', () => {
+            console.log(12)
+            //alert(productID)
+            // set form action
+            deleteForm.action = '/admin/tables/categories/' + categoriesID + '?_method=DELETE'
+            deleteForm.submit()
+        })
     </script>
 </body>
 

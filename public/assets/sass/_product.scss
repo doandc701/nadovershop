@@ -91,6 +91,10 @@
     height: 260px;
     position: relative;
     background-position: center center;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.1);
+    }
 
     .label {
       color: $heading-color;
