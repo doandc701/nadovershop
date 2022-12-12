@@ -3,6 +3,8 @@ import AdminController from "../controller/AdminController.js";
 import PagesController from "../controller/PagesController.js";
 import CategoriesController from "../controller/CategoriesController.js";
 import ProductsController from "../controller/ProductsController.js";
+import verifyToken from "../../../app/middlewares/verifyToken.js";
+import loggedIn from "../../../util/isLogged/index.js";
 const router = express.Router();
 
 router.all("/admin", (req, res, next) => {
@@ -34,7 +36,10 @@ router.route("/tables/categories/:id").delete(CategoriesController.delete);
 // end categories
 
 // admin
-router.route("/sign-up").get(AdminController.signUp);
+router.route("/sign-up").get(AdminController.signUp, verifyToken);
+router.route("/sign-up/register").post(AdminController.register);
 router.route("/sign-in").get(AdminController.signIn);
+router.route("/sign-in/login").post(AdminController.login);
+router.route("/logout").get(AdminController.logOut);
 router.route("/").get(AdminController.index);
 export default router;

@@ -1,5 +1,6 @@
 cài nodemon để thấy được sự thay đổi khi thay đổi dữ liệu
 Mongoose : Mô hình hóa đối tượng trong mongoose https://github.com/Automattic/mongoose
+hỗ trợ validate dùng 1 package là Joi : https://www.npmjs.com/package/joi
 
 ****Một số điều cần lưu ý
 
