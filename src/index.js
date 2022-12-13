@@ -6,7 +6,7 @@ import methodOverride from "method-override";
 const port = 3000;
 import route from "./routes/index.js";
 import db from "./config/db/index.js";
-
+import session from "express-session";
 // import adminRoutes from "../src/area/admin/router/index.js";
 
 // // change get to use it
@@ -29,6 +29,15 @@ app.use(express.json());
 // override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 
+// session
+app.use(
+  session({
+    secret: "abcdefg",
+    resave: true,
+    saveUninitialized: true,
+    cookie: { maxAge: 600000 },
+  })
+);
 // template engines
 app.engine(
   ".hbs",
@@ -38,7 +47,7 @@ app.engine(
       // tạo function index + 1
       sum: (a, b) => a + b,
     },
-  }),
+  })
 );
 app.set("view engine", ".hbs");
 app.set("views", "./src/view");
