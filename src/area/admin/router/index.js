@@ -4,7 +4,6 @@ import PagesController from "../controller/PagesController.js";
 import CategoriesController from "../controller/CategoriesController.js";
 import ProductsController from "../controller/ProductsController.js";
 import verifyToken from "../../../app/middlewares/verifyToken.js";
-import loggedIn from "../../../util/isLogged/index.js";
 const router = express.Router();
 
 router.all("/admin", (req, res, next) => {
