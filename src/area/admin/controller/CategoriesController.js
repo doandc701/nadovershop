@@ -4,20 +4,20 @@ import { mongooseToObject } from "../../../util/mongoose.js";
 class CategoriesController {
   // [GET] /admin/pages/categories/categories
   index(req, res, next) {
-    // res.render("admin/pages/categories/index", { layout: false });
+    // res.render("admin/pages/categories/index", { layout: "admin.hbs" });
     Categories.find({})
       .then((categories) =>
         res.render("admin/pages/categories/index", {
-          layout: false,
+          layout: "admin.hbs",
           categories: multipleMongooseToObject(categories),
-        }),
+        })
       )
       .catch(next);
   }
   // method CREATE
   // [POST] admin/pages/categories/create
   create(req, res, next) {
-    res.render("admin/pages/categories/add", { layout: false });
+    res.render("admin/pages/categories/add", { layout: "admin.hbs" });
   }
   store(req, res, next) {
     const categories = new Categories(req.body);
@@ -32,9 +32,9 @@ class CategoriesController {
     Categories.findById(req.params.id)
       .then((categories) =>
         res.render("admin/pages/categories/edit", {
-          layout: false,
+          layout: "admin.hbs",
           categories: mongooseToObject(categories),
-        }),
+        })
       )
       .catch(next);
   }

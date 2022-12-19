@@ -8,11 +8,11 @@ class AdminController {
   // [GET] /index
   index(req, res) {
     if (req.session.login) {
-      res.render("admin/index", { layout: false });
+      res.render("admin/index", { layout: "admin.hbs" });
     } else {
       req.session.back = "/admin/";
-      res.render("admin/users/sign-in", { layout: false });
-      // res.redirect("/admin/users/sign-in");
+      // res.render("admin/index", { layout: "admin.hbs" });
+      res.redirect("/admin/sign-in");
     }
   }
   signIn(req, res) {
@@ -73,7 +73,6 @@ class AdminController {
         res.redirect(session.back);
       }
     } else {
-      // res.render("admin/users/sign-in", { layout: false });
       res.redirect("/admin/index");
     }
   }

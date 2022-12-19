@@ -1,7 +1,4 @@
-{{!-- {{#each product1}}
 
-<h1>{{this.schema}}</h1>
-{{/each}} --}}
 <!-- Shop Section Begin -->
 <section class="shop spad">
   <div class="container">
@@ -112,7 +109,7 @@
               <div class="product__item__text">
                 <h6>{{this.name}}</h6>
                 <a href="/shop/{{this.slug}}" class="add-cart">+ Add To Cart</a>
-                <h5>{{this.price}}đ</h5>
+                <h5>{{ formatAmount this.price}}đ</h5>
               </div>
             </div>
           </div>

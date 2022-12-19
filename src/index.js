@@ -7,6 +7,7 @@ const port = 3000;
 import route from "./routes/index.js";
 import db from "./config/db/index.js";
 import session from "express-session";
+import numbro from "numbro"
 // import adminRoutes from "../src/area/admin/router/index.js";
 
 // // change get to use it
@@ -46,6 +47,10 @@ app.engine(
     helpers: {
       // tạo function index + 1
       sum: (a, b) => a + b,
+      formatAmount: (amount) => {
+        const result = numbro(amount).format({thousandSeparated: true});
+        return result;
+      }
     },
   })
 );

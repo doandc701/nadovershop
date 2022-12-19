@@ -1,22 +1,36 @@
 import Product from "../../../app/models/Product.js";
+import Categories from "../../../app/models/Categories.js";
 import { multipleMongooseToObject } from "../../../util/mongoose.js";
 import { mongooseToObject } from "../../../util/mongoose.js";
 class ProductsController {
   // [GET] admin/tables/products
-  index(req, res, next) {
-    Product.find({})
-      .then((product) =>
+  async index(req, res, next) {
+      try {
+        const product = await Product.find({}).populate('categories');
+        // console.log(product.categories)
+        const categories = await Categories.find({})
+        // if(product)
         res.render("admin/pages/products/index", {
-          layout: false,
           product: multipleMongooseToObject(product),
-        }),
-      )
-      .catch(next);
+          categories: multipleMongooseToObject(categories),
+          layout: "admin.hbs",
+        });
+      } catch (e) {
+        console.log(e)
+        res.send("Sorry!");
+      }
   }
   // start thêm mới một bản ghi
   // [GET] admin/tables/products/create
   create(req, res, next) {
-    res.render("admin/pages/products/add", { layout: false });
+    Categories.find({})
+      .then((categories) =>
+        res.render("admin/pages/products/add", {
+          layout: "admin.hbs",
+          categories: multipleMongooseToObject(categories),
+        })
+      )
+      .catch(next);
   }
   // lưu một bản ghi vào database
   //   [POST] admin/tables/products/store
@@ -35,16 +49,22 @@ class ProductsController {
 
   // start sửa một bản ghi vào database
   //   [GET] admin/tables/products/edit
-  edit(req, res, next) {
+  async edit(req, res, next) {
     // lấy params id để hiển thị từng field
-    Product.findById(req.params.id)
-      .then((product) => {
-        res.render("admin/pages/products/edit", {
-          layout: false,
-          product: mongooseToObject(product),
-        });
-      })
-      .catch(next);
+    try {
+      const product = await Product.findById(req.params.id);
+      // console.log(product)
+      const idCategories = await Categories.findById(product.categories);
+      const categories = await Categories.find({})
+      res.render("admin/pages/products/edit", {
+        product: mongooseToObject(product),
+        idCategories: mongooseToObject(idCategories),
+        categories: multipleMongooseToObject(categories),
+        layout: "admin.hbs",
+      });
+    } catch (e) {
+      res.send("Sorry!");
+    }
   }
   // chuyển đổi từ POST sang PUT của edit
   //  [PUT] admin/tables/products/:id
