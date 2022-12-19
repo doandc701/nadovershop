@@ -80,13 +80,13 @@
             class="product__item__pic set-bg"
             data-setbg="{{this.images}}"
           >
-            <span class="label">New</span>
+            <span class="label">{{this.product_type}}</span>
           </div>
           <div class="product__item__text">
             <h6 style="font-weight: bold">{{this.name}}</h6>
             <a href="/shop/{{this.slug}}" class="add-cart">+ Add To Cart</a>
             <h5 style="color:red ; font-weight:900">
-              {{this.price}}
+              {{formatAmount this.price}}
               <span class="woocommerce-Price-currencySymbol">₫</span>
               <ins><span style="padding: 0px 5px;background-color: red;color: white;font-size: 16px;">Sale</span></ins>
             </h5>
@@ -96,7 +96,7 @@
                 background-position: 50% 50%;
                 background-repeat: no-repeat;
                 background-size: 60px 40px;">
-                {{this.original_price}}<span class="woocommerce-Price-currencySymbol">₫</span>
+                {{formatAmount this.original_price}}<span class="woocommerce-Price-currencySymbol">₫</span>
             </span>
             <div class="product__color__select">
               <label for="pc-1">
