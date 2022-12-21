@@ -34,11 +34,18 @@ app.use(methodOverride("_method"));
 app.use(
   session({
     secret: "abcdefg",
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
     cookie: { maxAge: 600000 },
   })
 );
+
+// session cart
+app.use(function(req, res, next){
+  res.locals.session = req.session;
+  // console.log("req.session",res.locals.session)
+  next();
+});
 // template engines
 app.engine(
   ".hbs",

@@ -78,22 +78,7 @@
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
-    // Active Menu
-    let ulMenu = document.getElementById("ul-menu")
-    let elementMenuItem = ulMenu.getElementsByClassName("menu-item")
-    const current = document.getElementsByClassName("active");
-    // console.log(current[0] )
-    console.log(ulMenu, elementMenuItem)
-    for(let i = 0; i < elementMenuItem.length; i++) {
-      elementMenuItem[i].addEventListener("click", () => {
-        // lấy ra menu active hiện tại
-        const current = document.getElementsByClassName("active");
-        console.log(current[0])
-        // thay thế menu active hiện tại thành ""
-        current[0].className = current[0].className.replace("active", " ");
-        this.className += "active";
-      });
-    }
+   
 
   
       const signUpButton = document.getElementById('signUp');
