@@ -2,7 +2,8 @@ function Cart(cart){
     this.items = cart.items || {};
     this.totalItems = cart.totalItems || 0;
     this.totalPrice = cart.totalPrice || 0;
-    console.log(typeof(this.totalPrice));
+    this.size = cart.size;
+    console.log(cart);
 
     this.add = function(item, id) {
         var cartItem = this.items[id];
@@ -13,6 +14,8 @@ function Cart(cart){
         cartItem.price = cartItem.item.price * cartItem.quantity;
         this.totalItems++;
         this.totalPrice +=parseInt(cartItem.item.price);
+        this.size = cartItem.item.size;
+        //console.log(cartItem.size);
     };
     this.getItems = function() {
         var arr = [];

@@ -23,42 +23,38 @@
       <form action="#">
         <div class="row">
           <div class="col-lg-8 col-md-6">
-            <h6 class="coupon__code"><span class="icon_tag_alt"></span>
+            {{!-- <h6 class="coupon__code"><span class="icon_tag_alt"></span>
               Have a coupon?
               <a href="#">Click here</a>
-              to enter your code</h6>
-            <h6 class="checkout__title">Billing Details</h6>
+              to enter your code</h6> --}}
+            <h6 class="checkout__title">Thông tin thanh toán</h6>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg">
                 <div class="checkout__input">
-                  <p>Fist Name<span>*</span></p>
-                  <input type="text" />
+                  <p>Họ Và Tên<span>*</span></p>
+                  <input type="text" placeholder="Họ Và Tên" />
                 </div>
               </div>
-              <div class="col-lg-6">
+             {{!--  <div class="col-lg-6">
                 <div class="checkout__input">
                   <p>Last Name<span>*</span></p>
                   <input type="text" />
                 </div>
-              </div>
+              </div> --}}
             </div>
-            <div class="checkout__input">
-              <p>Country<span>*</span></p>
+            {{!-- <div class="checkout__input">
+              <p>Địa chỉ<span>*</span></p>
               <input type="text" />
-            </div>
+            </div> --}}
             <div class="checkout__input">
-              <p>Address<span>*</span></p>
+              <p>Địa chỉ<span>*</span></p>
               <input
                 type="text"
-                placeholder="Street Address"
+                placeholder="Địa chỉ"
                 class="checkout__input__add"
               />
-              <input
-                type="text"
-                placeholder="Apartment, suite, unite ect (optinal)"
-              />
             </div>
-            <div class="checkout__input">
+            {{!-- <div class="checkout__input">
               <p>Town/City<span>*</span></p>
               <input type="text" />
             </div>
@@ -69,22 +65,44 @@
             <div class="checkout__input">
               <p>Postcode / ZIP<span>*</span></p>
               <input type="text" />
-            </div>
+            </div> --}}
             <div class="row">
               <div class="col-lg-6">
                 <div class="checkout__input">
-                  <p>Phone<span>*</span></p>
-                  <input type="text" />
+                  <p>Số điện thoại<span>*</span></p>
+                  <input type="text" placeholder="Số điện thoại" />
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="checkout__input">
-                  <p>Email<span>*</span></p>
-                  <input type="text" />
+                  <p>Email(Không bắt buộc)<span>*</span></p>
+                  <input type="text" placeholder="...@gmail.com"/>
                 </div>
               </div>
             </div>
-            <div class="checkout__input__checkbox">
+            <div class="checkout__input">
+              <p>Ghi chú<span>*</span></p>
+              <input
+                type="text"
+                placeholder="Note..."
+                class="checkout__input__add"
+              />
+            </div>
+            <div class="checkout__input">
+              <p>Size<span>*</span></p>
+              <select class="form-select" id="validationCustom10" required="" name="product_type">
+                    <option value="">Choose...</option>
+                    <option>38</option>
+                    <option>39</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                  </select>
+                  <div class="invalid-feedback">
+                      Please select a valid product type.
+                  </div>
+            </div>
+           {{!--  <div class="checkout__input__checkbox">
               <label for="acc">
                 Create an account?
                 <input type="checkbox" id="acc" />
@@ -110,24 +128,41 @@
                 type="text"
                 placeholder="Notes about your order, e.g. special notes for delivery."
               />
-            </div>
+            </div> --}}
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="checkout__order">
-              <h4 class="order__title">Your order</h4>
-              <div class="checkout__order__products">Product
-                <span>Total</span></div>
+              <h4 class="order__title">Đơn hàng của bạn</h4>
+              <div class="checkout__order__products">Sản phẩm
+                <span>Giá</span>
+              </div>
+              {{#each products}}
               <ul class="checkout__total__products">
-                <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
-                <li>02. German chocolate <span>$ 170.0</span></li>
-                <li>03. Sweet autumn <span>$ 170.0</span></li>
-                <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
+                <li>{{this.item.name}}<span>{{ formatAmount this.item.price }}đ x {{this.quantity}}</span></li>
               </ul>
+              {{/each}}
               <ul class="checkout__total__all">
-                <li>Subtotal <span>$750.99</span></li>
-                <li>Total <span>$750.99</span></li>
+                {{!-- <li>Subtotal <span>$750.99</span></li> --}}
+                <li>Tổng <span>{{formatAmount totalPrice}}đ</span></li>
               </ul>
-              <div class="checkout__input__checkbox">
+              <div class="payments">
+                <h5>Hình thức thanh toán:</h5>
+                <ul class="checkout__total__products">
+                  <li class="wc_payment_method payment_method_cod">
+                    <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod"  data-order_button_text="" />
+                    <label for="payment_method_cod">Thanh toán khi nhận hàng (COD) 	</label>
+                    {{!-- <div style="display:none;">
+			              <p>Quý khách sẽ thanh toán bằng tiền mặt khi nhận hàng.</p>
+                    <p>*Để đem đến chất lượng dịch vụ tốt nhất cho những quý khách hàng thực sự có nhu cầu của cửa hàng, chúng tôi xin phép quý khách hàng sẽ chỉ ship COD toàn bộ đối với các đơn hàng dưới 499.000đ. <strong>Đối với các đơn hàng có giá trị trên 500.000đ, quý khách hàng vui lòng chuyển khoản trước tối thiểu 500.000đ</strong>.</p>
+		                </div> --}}
+	                </li>
+                  <li class="wc_payment_method payment_method_cod">
+                    <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="bank"  data-order_button_text="" />
+                    <label for="payment_method_cod">Chuyển khoản ngân hàng 	</label>
+	                </li>
+                </ul>
+              </div>
+              {{!-- <div class="checkout__input__checkbox">
                 <label for="acc-or">
                   Create an account?
                   <input type="checkbox" id="acc-or" />
@@ -149,8 +184,8 @@
                   <input type="checkbox" id="paypal" />
                   <span class="checkmark"></span>
                 </label>
-              </div>
-              <button type="submit" class="site-btn">PLACE ORDER</button>
+              </div> --}}
+              <button type="submit" class="site-btn">Đặt hàng</button>
             </div>
           </div>
         </div>

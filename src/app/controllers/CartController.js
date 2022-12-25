@@ -2,25 +2,27 @@ import Cart from "../models/Cart.js";
 import Product from "../models/Product.js";
 
 class CartController {
-  index(req, res, next) {
-    // res.send("CartController");
-    var productId=req.params.id;
-    //console.log(productId);
+  index(req, res) {
+    if(!req.session.cart) {
+      return res.render('cart/index', {products: null});
+    } 
+    const cart = new Cart(req.session.cart)
+    return res.render('cart/index',{products: cart.getItems(), totalPrice: cart.totalPrice});
+  }
+  show(req, res, next) {
+    var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
-    res.render('cart/index',{products: cart.getItems(), totalPrice: cart.totalPrice});
 
     Product.findById(productId, function(err,product) {
       if(err){
-        //return res.redirect('/');
         console.log(err);
+        return res.redirect('/')
       }
-      //return item.id == productId;
-    cart.add(product, productId);
+    cart.add(product, product.id);
     req.session.cart = cart;
-    var result = req.session.cart;
-    // console.log("result",result);
+    console.log(req.session.cart);
+    res.redirect('/')
   });
   }
-
 }
 export default new CartController();

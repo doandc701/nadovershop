@@ -15,7 +15,7 @@
             <div class="accordion" id="accordionExample">
               <div class="card">
                 <div class="card-heading">
-                  <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+                  <a data-toggle="collapse" data-target="#collapseOne">Danh mục</a>
                 </div>
                 <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                   <div class="card-body">
@@ -41,15 +41,15 @@
               </div>
               <div class="card">
                 <div class="card-heading">
-                  <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+                  <a data-toggle="collapse" data-target="#collapseTwo">Thương hiệu</a>
                 </div>
                 <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
                   <div class="card-body">
                     <div class="shop__sidebar__brand">
                       <ul>
-                        <li><a href="#">Louis Vuitton</a></li>
-                        <li><a href="#">Chanel</a></li>
-                        <li><a href="#">Hermes</a></li>
+                        <li><a href="#">Nike</a></li>
+                        <li><a href="#">Dior</a></li>
+                        <li><a href="#">Jordan</a></li>
                         <li><a href="#">Gucci</a></li>
                       </ul>
                     </div>
@@ -58,19 +58,17 @@
               </div>
               <div class="card">
                 <div class="card-heading">
-                  <a data-toggle="collapse" data-target="#collapseThree">Filter
-                    Price</a>
+                  <a data-toggle="collapse" data-target="#collapseThree">Giá</a>
                 </div>
                 <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
                   <div class="card-body">
                     <div class="shop__sidebar__price">
                       <ul>
-                        <li><a href="#">$0.00 - $50.00</a></li>
-                        <li><a href="#">$50.00 - $100.00</a></li>
-                        <li><a href="#">$100.00 - $150.00</a></li>
-                        <li><a href="#">$150.00 - $200.00</a></li>
-                        <li><a href="#">$200.00 - $250.00</a></li>
-                        <li><a href="#">250.00+</a></li>
+                        <li><a href="#">0đ - 1.000.000đ</a></li>
+                        <li><a href="#">1.000.000đ - 3.000.000đ</a></li>
+                        <li><a href="#">3.000.000đ - 5.000.000đ</a></li>
+                        <li><a href="#">5.000.000đ - 7.000.000đ</a></li>
+                        <li><a href="#">7.000.000đ - 10.000.000đ</a></li>
                       </ul>
                     </div>
                   </div>
@@ -85,14 +83,14 @@
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="shop__product__option__left">
-                <p>Showing 1–12 of 126 results</p>
+                <p>Sản phẩm</p>
               </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="shop__product__option__right">
-                <p>Sort by Price:</p>
+                <p>Sắp xếp theo giá:</p>
                 <select>
-                  <option value="">Low To High</option>
+                  <option value="">Thấp đến Cao</option>
                   <option value="">Dưới 1 triệu</option>
                   <option value="">Trên 1 triệu</option>
                 </select>
@@ -108,7 +106,7 @@
               </div>
               <div class="product__item__text">
                 <h6>{{this.name}}</h6>
-                <a href="/shop/{{this.slug}}" class="add-cart">+ Add To Cart</a>
+                <a href="/shop/{{this.slug}}" class="add-cart">+ Thêm giỏ hàng</a>
                 <h5>{{ formatAmount this.price}}đ</h5>
               </div>
             </div>
