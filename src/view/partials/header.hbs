@@ -39,7 +39,9 @@
           <a href="/guest/login" style="color: #000000"><i class="fa-regular fa-user"
               style="vertical-align: middle;"></i></a>
           <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt="" /></a>
-          <a href="/shopping-cart"><img src="/assets/img/icon/cart.png" alt="" /> <span>{{session.cart.totalItems}}</span></a>
+          <a href="/shopping-cart"><img src="/assets/img/icon/cart.png" alt="" /> 
+            <span style="color: red; font-weight:bold">{{session.cart.totalItems}}</span>
+          </a>
         </div>
       </div>
     </div>

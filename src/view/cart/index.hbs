@@ -1,74 +1,83 @@
 <!-- Shopping Cart Section Begin -->
+{{#if products}}
 <section class="shopping-cart spad">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-lg-8">\
         <div class="shopping__cart__table">
           <table>
             <thead>
               <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th></th>
+                <th >Hình ảnh</th>
+                <th >Tên sản phẩm</th>
+                <th >Số lượng</th>
+                {{!-- <th >Size</th> --}}
+                <th >Giá</th>
               </tr>
             </thead>
+            {{#each products}}
             <tbody>
               <tr>
-                {{#each products}}
                 <td class="product__cart__item">
                   <div class="product__cart__item__pic">
                     <img src="{{this.item.images}}" alt="" />
                   </div>
+                </td>
+                <td class="product__cart__item">
                   <div class="product__cart__item__text">
-                    <h5>{{this.item.name}}</h5>
+                    <h5 style="font-weight: 100;">{{this.item.name}}</h5>
                   </div>
                 </td>
                 <td class="quantity__item">
                   <div class="quantity">
                     <div class="pro-qty-2">
-                      <input type="text" value="1" />
+                      <input type="text" value="{{this.quantity}}" />
                     </div>
                   </div>
                 </td>
-                <td class="cart__price">{{ formatAmount this.item.price }}</td>
-                <td class="cart__close"><i class="fa fa-close"></i></td>
-                {{/each}}
+                {{!-- <td class="cart__price" style="font-weight: 100;">XXL</td> --}}
+                <td class="cart__price" style="font-weight: 100;">{{ formatAmount this.item.price }}đ</td>
+                <td class="cart__close"><i class="fa fa-close"></i></td>    
               </tr>
             </tbody>
+             {{/each}}
           </table>
         </div>
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="continue__btn">
-              <a href="#">Continue Shopping</a>
+              <a href="/shop">Tiếp tục mua hàng</a>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="continue__btn update__btn">
-              <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+              <a href="/shopping-cart/{{product._id}}/"><i class="fa fa-spinner"></i> Cập nhật giỏ hàng</a>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="cart__discount">
-          <h6>Discount codes</h6>
-          <form action="#">
-            <input type="text" placeholder="Coupon code" />
-            <button type="submit">Apply</button>
-          </form>
+          <h6>Thanh toán</h6>
         </div>
         <div class="cart__total">
-          <h6>Cart total</h6>
+          <h6>Tổng giỏ hàng</h6>
           <ul>
-            <li>Subtotal <span>$ 169.50</span></li>
-            <li>Total <span>$ 169.50</span></li>
+            <li>Tổng tiền <span>{{formatAmount totalPrice}}đ</span></li>
           </ul>
-          <a href="/checkout" class="primary-btn">Proceed to checkout</a>
+          <a href="/checkout" class="primary-btn">Mua ngay</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+{{else}}
+<section class="shopping-cart spad">
+  <div class="container">
+    <div class="row">
+      <h1>No item cart</h1>
+    </div>
+  </div>
+</section>
+{{/if}}
 <!-- Shopping Cart Section End -->

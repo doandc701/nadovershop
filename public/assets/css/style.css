@@ -1931,7 +1931,7 @@ ul.footer__support li a:hover {
         padding-bottom: 30px;
         padding-top: 30px; }
         .shopping__cart__table table tbody tr td.product__cart__item {
-          width: 400px; }
+          width: 200px; }
           .shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic {
             float: left;
             margin-right: 30px; }
@@ -1999,12 +1999,16 @@ ul.footer__support li a:hover {
   display: inline-block; }
 
 .cart__discount {
-  margin-bottom: 60px; }
+  margin-bottom: 35px;
+  text-align: center;
+}
   .cart__discount h6 {
     color: #111111;
-    font-weight: 700;
+    font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 35px; }
+    margin-bottom: 35px;
+    font-size: 30px;
+   }
   .cart__discount form {
     position: relative; }
     .cart__discount form input {
