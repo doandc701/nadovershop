@@ -38,8 +38,8 @@ class AdminController {
     });
     try {
       const newUser = await user.save();
-      await res.send(newUser);
-      // await res.redirect("/guest/login");
+      // await res.send(newUser);
+      await res.redirect("/admin/sign-in");
     } catch (err) {
       res.status(400).send(err);
     }

@@ -3,6 +3,7 @@ import AdminController from "../controller/AdminController.js";
 import PagesController from "../controller/PagesController.js";
 import CategoriesController from "../controller/CategoriesController.js";
 import ProductsController from "../controller/ProductsController.js";
+import CheckOutController from "../controller/CheckOutController.js";
 import verifyToken from "../../../app/middlewares/verifyToken.js";
 const router = express.Router();
 
@@ -12,6 +13,7 @@ router.all("/admin", (req, res, next) => {
 });
 // page
 router.route("/tables").get(PagesController.index);
+router.route("/tables/order-cart").get(CheckOutController.index);
 // categories
 router.route("/tables/categories").get(CategoriesController.index);
 

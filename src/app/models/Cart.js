@@ -3,7 +3,7 @@ function Cart(cart){
     this.totalItems = cart.totalItems || 0;
     this.totalPrice = cart.totalPrice || 0;
     this.size = cart.size;
-    console.log(cart);
+    // console.log(cart);
 
     this.add = function(item, id) {
         var cartItem = this.items[id];

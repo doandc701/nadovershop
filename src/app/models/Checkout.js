@@ -16,6 +16,7 @@ const Checkout = new Schema(
     size: {type: String},
     nameProduct : {type: String},
     price: { type: String },
+    quantity:{type: Number},
     totalPrice: {type: String},
     // slug dùng unique để khi trùng slug thì nó sẽ tự tạo thêm một chuỗi bất kì để không gây ra lỗi
     slug: { type: String, slug: "name", unique: true },

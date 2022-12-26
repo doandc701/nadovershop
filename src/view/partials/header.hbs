@@ -9,7 +9,8 @@
   </div>
   <div class="offcanvas__nav__option">
     <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt="" /></a>
-    <a href="./shopping-cart.html"><img src="/assets/img/icon/cart.png" alt="" /> <span>{{session.cart.totalItems}}</span></a>
+    <a href="./shopping-cart.html"><img src="/assets/img/icon/cart.png" alt="" />
+      <span>{{session.cart.totalItems}}</span></a>
   </div>
   <div id="mobile-menu-wrap"></div>
 </div>
@@ -27,7 +28,7 @@
       <div class="col-lg-6 col-md-6">
         <nav class="header__menu mobile-menu">
           <ul>
-             <li class="menu-item"><a href="/">Home</a></li>
+            <li class="menu-item"><a href="/">Home</a></li>
             <li class="menu-item"><a href="/shop">Shop</a></li>
             <li class="menu-item"><a href="/blog">Blog</a></li>
             <li class="menu-item"><a href="/contact">Contacts</a></li>
@@ -36,10 +37,14 @@
       </div>
       <div class="col-lg-3 col-md-3">
         <div class="header__nav__option">
-          <a href="/guest/login" style="color: #000000"><i class="fa-regular fa-user"
+          {{#if session.login}}
+          <a class="custom_user" href="/logout" style="color: #000000">{{ session.user }}</a>
+          {{else}}
+          <a href="/guest/login" style="color: #000000" ><i class="fa-regular fa-user"
               style="vertical-align: middle;"></i></a>
+          {{/if}}
           <a href="#" class="search-switch"><img src="/assets/img/icon/search.png" alt="" /></a>
-          <a href="/shopping-cart"><img src="/assets/img/icon/cart.png" alt="" /> 
+          <a href="/shopping-cart"><img src="/assets/img/icon/cart.png" alt="" />
             <span style="color: red; font-weight:bold">{{session.cart.totalItems}}</span>
           </a>
         </div>
