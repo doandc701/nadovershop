@@ -102,16 +102,18 @@
         <div class="row">
           {{#each product}}
           <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="product__item">
-              <div class="product__item__pic set-bg" data-setbg="{{this.images}}">
+            <a href="/shop/{{this.slug}}">
+              <div class="product__item">
+                <div class="product__item__pic set-bg" data-setbg="{{this.images}}">
+                </div>
+                <div class="product__item__text">
+                  <h6>{{this.name}}</h6>
+                  <a href="/shopping-cart/{{this._id}}" class="add-cart">+ Thêm giỏ
+                    hàng</a>
+                  <h5>{{formatAmount this.price}}đ</h5>
+                </div>
               </div>
-              <div class="product__item__text">
-                <h6>{{this.name}}</h6>
-                <a href="/shop/{{this.slug}}" class="add-cart">+ Thêm giỏ
-                  hàng</a>
-                <h5>{{formatAmount this.price}}đ</h5>
-              </div>
-            </div>
+            </a>
           </div>
           {{/each}}
         </div>

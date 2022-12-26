@@ -73,16 +73,13 @@
     <div class="row product__filter">
       {{#each product}}
 
-      <div
-        class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals"
-      >
+      <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
         <div class="product__item">
-          <div
-            class="product__item__pic set-bg"
-            data-setbg="{{this.images}}"
-          >
-            <span class="label">{{this.product_type}}</span>
-          </div>
+          <a href="/shop/{{this.slug}}">
+            <div class="product__item__pic set-bg" data-setbg="{{this.images}}">
+              <span class="label">{{this.product_type}}</span>
+            </div>
+          </a>
           <div class="product__item__text">
             <h6 style="font-weight: bold">{{this.name}}</h6>
             <a href="/shopping-cart/{{this._id}}" class="add-cart">+ Thêm giỏ hàng</a>
@@ -97,7 +94,7 @@
                 background-position: 50% 50%;
                 background-repeat: no-repeat;
                 background-size: 60px 40px;">
-                {{formatAmount this.original_price}}<span class="woocommerce-Price-currencySymbol">₫</span>
+              {{formatAmount this.original_price}}<span class="woocommerce-Price-currencySymbol">₫</span>
             </span>
             <div class="product__color__select">
               <label for="pc-1">
@@ -117,10 +114,10 @@
     </div>
     {{else}}
     <div class="row product__filter" style="justify-content: center;">
-          <h3 style="color:#df5151">Không có sản phẩm tìm kiếm</h3>
+      <h3 style="color:#df5151">Không có sản phẩm tìm kiếm</h3>
     </div>
     {{/if}}
-    
+
   </div>
 </section>
 <!-- Product Section End -->
@@ -143,10 +140,7 @@
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="blog__item">
-          <div
-            class="blog__item__pic set-bg"
-            data-setbg="/assets/img/blog/blog-1.jpg"
-          ></div>
+          <div class="blog__item__pic set-bg" data-setbg="/assets/img/blog/blog-1.jpg"></div>
           <div class="blog__item__text">
             <span><img src="/assets/img/icon/calendar.png" alt="" />
               16 February 2020</span>
@@ -157,10 +151,7 @@
       </div>
       <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="blog__item">
-          <div
-            class="blog__item__pic set-bg"
-            data-setbg="/assets/img/blog/blog-2.jpg"
-          ></div>
+          <div class="blog__item__pic set-bg" data-setbg="/assets/img/blog/blog-2.jpg"></div>
           <div class="blog__item__text">
             <span><img src="/assets/img/icon/calendar.png" alt="" />
               21 February 2020</span>
@@ -171,10 +162,7 @@
       </div>
       <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="blog__item">
-          <div
-            class="blog__item__pic set-bg"
-            data-setbg="/assets/img/blog/blog-3.jpg"
-          ></div>
+          <div class="blog__item__pic set-bg" data-setbg="/assets/img/blog/blog-3.jpg"></div>
           <div class="blog__item__text">
             <span><img src="/assets/img/icon/calendar.png" alt="" />
               28 February 2020</span>
