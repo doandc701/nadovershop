@@ -15,6 +15,9 @@
         </div>
     </div>
 </nav>
+<div class="d-flex justify-content-end">
+    <a href="/admin/tables/order-cart/export" class="btn btn-success mt-4">Export Files</a>
+</div>
 {{!-- tables --}}
 <table class="table">
     <thead>
@@ -25,11 +28,12 @@
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
             <th scope="col">Size</th>
-            <th scope="col">Name Product</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
+            <th scope="col">Order Cart</th>
+            {{!-- <th scope="col">Price</th>
+            <th scope="col">Quantity</th> --}}
             <th scope="col">Total Price</th>
             <th scope="col">Note</th>
+            <th scope="col">Method Payment</th>
             <th scope="col">Time</th>
         </tr>
     </thead>
@@ -43,15 +47,34 @@
                 <td>{{this.phone}}</td>
                 <td>{{this.email}}</td>
                 <td>{{this.size}}</td>
-                <td>{{this.nameProduct}}</td>
-                <td>{{formatAmount this.price}}</td>
-                <td>{{this.quantity}}</td>
+                <td>
+                    {{#each this.orderCart}}
+                    <b>Name Product</b>: {{this.name}} - <b>Price</b>: {{formatAmount this.price}} -
+                    <b>Quantity</b>: {{this.quantity}}<br />
+                    {{/each}}
+                </td>
                 <td>{{formatAmount this.totalPrice}}</td>
                 <td>{{this.note}}</td>
+                <td>{{this.payment}}</td>
                 <td>{{this.createdAt}}</td>
         </tr>
         {{/each}}
-
-
     </tbody>
 </table>
+
+<form action="" method="GET">
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            <li class="page-item " aria-current="page">
+                <input class="page-link" type="submit" value="1" name="p">
+            </li>
+            <li class="page-item " aria-current="page">
+                <input class="page-link" type="submit" value="2" name="p">
+            </li>
+            <li class="page-item " aria-current="page">
+                <input class="page-link" type="submit" value="3" name="p">
+            </li>
+
+        </ul>
+    </nav>
+</form>

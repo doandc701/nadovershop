@@ -19,7 +19,7 @@
 {{!-- form add --}}
 <h3 class="mt-4" style="text-align:center">Thêm/ Sửa Sản Phẩm</h3>
 
-<form class="row g-3 needs-validation" style="display:block" novalidate="" method="POST"
+<form class="row g-3 needs-validation" enctype="multipart/form-data" style="display:block" novalidate="" method="POST"
   action="/admin/tables/products/store">
 
   <div class="col-md">
@@ -30,9 +30,16 @@
     </div>
   </div>
 
-  <div class="col-md">
+  {{!-- <div class="col-md">
     <label for="validationCustom02" class="form-label">Image</label>
     <input type="text" class="form-control" id="validationCustom02" value="" required="" name="images" />
+    <div class="invalid-feedback">
+      Please select a valid images.
+    </div>
+  </div> --}}
+  <div class="col-md">
+    <label for="validationCustom02" class="form-label">Image</label>
+    <input type="file" class="form-control" id="validationCustom02" required="" name="images" />
     <div class="invalid-feedback">
       Please select a valid images.
     </div>

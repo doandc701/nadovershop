@@ -1,4 +1,4 @@
-import adminRouter from "../area/admin/router/index.js";
+import adminRouter from "../admin/router/index.js";
 import blogController from "./modules/blog.js";
 import checkoutRouter from "./modules/checkout.js";
 import loginRouter from "./modules/login.js";

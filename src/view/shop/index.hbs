@@ -21,7 +21,16 @@
                     <div class="shop__sidebar__categories">
                       <ul class="nice-scroll">
                         {{#each categories}}
-                        <li><a href="#">{{this.name}}</a></li>
+                        <li>
+                          <form class="search-model-form" action="/shop/filters" method="GET">
+
+                            <input style="font-size: 15px;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: unset;text-align: start;" type="submit" value="{{this.name}}" name="categories" readonly />
+
+                          </form>
+                        </li>
                         {{/each}}
 
                         {{!-- {{/each}} --}}
@@ -38,7 +47,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card">
+              {{!-- <div class="card">
                 <div class="card-heading">
                   <a data-toggle="collapse" data-target="#collapseTwo">Thương
                     hiệu</a>
@@ -55,8 +64,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="card">
+              </div> --}}
+              {{!-- <div class="card">
                 <div class="card-heading">
                   <a data-toggle="collapse" data-target="#collapseThree">Giá</a>
                 </div>
@@ -64,7 +73,7 @@
                   <div class="card-body">
                     <div class="shop__sidebar__price">
                       <ul>
-                        <li><a href="#">0đ - 1.000.000đ</a></li>
+                        <li><a href="/shop?filter=0-1.000.000">0đ - 1.000.000đ</a></li>
                         <li><a href="#">1.000.000đ - 3.000.000đ</a></li>
                         <li><a href="#">3.000.000đ - 5.000.000đ</a></li>
                         <li><a href="#">5.000.000đ - 7.000.000đ</a></li>
@@ -73,7 +82,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
@@ -91,8 +100,7 @@
                 <p>Sắp xếp theo giá:</p>
                 <select>
                   <option value="">Thấp đến Cao</option>
-                  <option value="">Dưới 1 triệu</option>
-                  <option value="">Trên 1 triệu</option>
+                  <option value="">Cao đến Thấp</option>
                 </select>
               </div>
             </div>
@@ -104,7 +112,7 @@
           <div class="col-lg-4 col-md-6 col-sm-6">
             <a href="/shop/{{this.slug}}">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="{{this.images}}">
+                <div class="product__item__pic set-bg" data-setbg="/uploads/{{this.images}}">
                 </div>
                 <div class="product__item__text">
                   <h6>{{this.name}}</h6>
@@ -139,3 +147,15 @@
   </div>
 </section>
 <!-- Shop Section End -->
+<style>
+  .product__item__text a {
+    font-size: 15px;
+    color: #e53637;
+    font-weight: 700;
+    position: relative;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+</style>

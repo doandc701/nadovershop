@@ -31,57 +31,52 @@
                   <input type="text" placeholder="Họ Và Tên" name="name" />
                 </div>
               </div>
-           
+
             </div>
-           
+
             <div class="checkout__input">
               <p>Địa chỉ<span>*</span></p>
-              <input
-                type="text"
-                placeholder="Địa chỉ"
-                class="checkout__input__add"
-                name="address"
-              />
+              <input type="text" placeholder="Địa chỉ" class="checkout__input__add" name="address" />
             </div>
-           
+
             <div class="row">
               <div class="col-lg-6">
                 <div class="checkout__input">
                   <p>Số điện thoại<span>*</span></p>
-                  <input type="text" placeholder="Số điện thoại" name="phone"/>
+                  <input type="text" placeholder="Số điện thoại" name="phone" />
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="checkout__input">
                   <p>Email(Không bắt buộc)<span>*</span></p>
-                  <input type="text" placeholder="...@gmail.com" name="email"/>
+                  {{#if user}}
+                  <input type="text" value="{{user.email}}" name="email" />
+                  {{else}}
+                  <input type="text" placeholder="...@gmail.com" name="email" />
+                  {{/if}}
+
                 </div>
               </div>
             </div>
             <div class="checkout__input">
               <p>Ghi chú<span>*</span></p>
-              <input
-                type="text"
-                placeholder="Note..."
-                class="checkout__input__add"
-                name="note"
-              />
+              <input type="text" placeholder="Note..." class="checkout__input__add" name="note" />
             </div>
             <div class="checkout__input">
               <p>Size<span>*</span></p>
               <select class="form-select" id="validationCustom10" required="" name="size">
-                    <option value="">Choose...</option>
-                    <option value="38">38</option>
-                    <option value="39">39</option>
-                    <option value="40">40</option>
-                    <option value="41">41</option>
-                    <option value="42">42</option>
-                  </select>
-                  <div class="invalid-feedback">
-                      Please select a valid size.
-                  </div>
+                <option value="">Choose...</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid size.
+              </div>
             </div>
-           
+
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="checkout__order">
@@ -91,7 +86,7 @@
               </div>
               {{#each products}}
               <ul class="checkout__total__products">
-                <li >
+                <li>
                   <span>{{this.item.name}}
                     <input type="text" name="nameProduct" value="{{this.item.name}}" hidden>
                   </span>
@@ -100,34 +95,36 @@
                   </p>
                   <span>{{ formatAmount this.item.price }}đ
                     <input type="text" name="price" value="{{ formatAmount this.item.price }}" hidden>
-                  </span> x 
-                  </li>
-              {{/each}}
-              <ul class="checkout__total__all">
-                {{!-- <li>Subtotal <span>$750.99</span></li> --}}
-                <li>Tổng 
-                  <span>
-                    {{formatAmount totalPrice}}đ
-                    <input type="text" name="totalPrice" value="{{formatAmount totalPrice}}" hidden>
-                  </span>
+                  </span> x
                 </li>
-              </ul>
-              <div class="payments">
-                <h5>Hình thức thanh toán:</h5>
-                <ul class="checkout__total__products">
-                  <li class="wc_payment_method payment_method_cod">
-                    <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod"  data-order_button_text="" />
-                    <label for="payment_method_cod">Thanh toán khi nhận hàng (COD) 	</label>
-                 
-	                </li>
-                  <li class="wc_payment_method payment_method_cod">
-                    <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="bank"  data-order_button_text="" />
-                    <label for="payment_method_cod">Chuyển khoản ngân hàng 	</label>
-	                </li>
+                {{/each}}
+                <ul class="checkout__total__all">
+                  {{!-- <li>Subtotal <span>$750.99</span></li> --}}
+                  <li>Tổng
+                    <span>
+                      {{formatAmount totalPrice}}đ
+                      <input type="text" name="totalPrice" value="{{formatAmount totalPrice}}" hidden>
+                    </span>
+                  </li>
                 </ul>
-              </div>
-  
-              <button type="submit" class="site-btn">Đặt hàng</button>
+                <div class="payments">
+                  <h5>Hình thức thanh toán:</h5>
+                  <ul class="checkout__total__products">
+                    <li class="wc_payment_method payment_method_cod">
+                      <input id="payment_method_cod" type="radio" class="input-radio" name="payment" value="cod"
+                        data-order_button_text="" />
+                      <label for="payment_method_cod">Thanh toán khi nhận hàng (COD) </label>
+
+                    </li>
+                    <li class="wc_payment_method payment_method_cod">
+                      <input id="payment_method_cod" type="radio" class="input-radio" name="payment" value="bank"
+                        data-order_button_text="" />
+                      <label for="payment_method_cod">Chuyển khoản ngân hàng </label>
+                    </li>
+                  </ul>
+                </div>
+
+                <button type="submit" class="site-btn">Đặt hàng</button>
             </div>
           </div>
         </div>
