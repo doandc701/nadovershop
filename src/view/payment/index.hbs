@@ -1,0 +1,22 @@
+<form action="/payment/checkout" method="POST" style="">
+  <div class="d-flex justify-content-center align-items-center ">
+    <div style="display: flex;
+    flex-direction: column;">
+      <label for="totalPrice">Số Tiền</label>
+      <div>
+
+        <input type="text" name="amount" value="{{payment.totalPrice}}" style="width: auto;
+    margin-bottom: unset;
+    padding: 0px;
+    border: unset;
+    border-radius: unset;
+    text-align: end;
+    font-weight: 800;" readonly>
+        VNĐ
+      </div>
+      <input type="radio" name="bankCode" id="vnbankPaymentMethod" name="address" value="VNBANK" checked>
+      <label for="email">Tài khoản ngân hàng nội địa</label>
+      <button type="submit" class="btn btn-primary" class="w">Payment Now</button>
+    </div>
+  </div>
+</form>

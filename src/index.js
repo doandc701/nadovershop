@@ -17,9 +17,6 @@ export const getGA = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-// // change get to use it
-// app.use("/admin", adminRoutes);
-
 // HTTP logger
 // app.use(morgan("combined"));
 
