@@ -3,6 +3,7 @@ import Product from "../models/Product.js";
 import Checkout from "../models/Checkout.js";
 import Users from "../models/Users.js";
 import { mongooseToObject } from "../util/mongoose.js";
+import { getData } from "./PaymentController.js";
 
 class CheckOutController {
   index(req, res) {
@@ -49,13 +50,16 @@ class CheckOutController {
       payment: req.body.payment,
       totalPrice: req.body.totalPrice,
     };
+    getData(inforCart)
+
     // res.json(inforCart);
     const checkOut = new Checkout(inforCart);
     checkOut
       .save()
       .then(() => {
         req.session.destroy();
-        res.redirect("/");
+        res.redirect("/payment");
+        // getPayment
       })
       .catch((err) => {
         console.log(err);

@@ -77,8 +77,11 @@ router.route("/sign-up/register").post(AdminController.register);
 router.route("/sign-in").get(AdminController.signIn);
 router
   .route("/sign-in/login")
+  // .post(
+  //   authPage(["64572ed39cbb5f4c80113c6a", "64572f69f6e8de25d650d421"]),
+  //   AdminController.login
+  // );
   .post(
-    authPage(["64572ed39cbb5f4c80113c6a", "64572f69f6e8de25d650d421"]),
     AdminController.login
   );
 router.route("/logout").get(AdminController.logOut);

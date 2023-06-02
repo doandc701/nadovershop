@@ -6,9 +6,11 @@ import contactRouter from "./modules/contact.js";
 import cartRouter from "./modules/cart.js";
 import shopRouter from "./modules/shop.js";
 import siteController from "./modules/site.js";
+import paymentRouter from './modules/payment.js'
 const route = (app) => {
   // req :request gửi đi một yêu cầu
   // res : respone phản hồi
+  app.use('/payment', paymentRouter)
   app.use("/admin", adminRouter);
   app.use("/checkout", checkoutRouter);
   app.use("/guest/login", loginRouter);
